@@ -25,21 +25,21 @@ func main() {
 	log.SetLevel(log.Level(conf.LogLevel))
 	log.Info("Starting service with configuration: ", conf.ConfigFile)
 	// Создаем сторедж
-	store, err := store.NewStore(conf)
+	store1, err := store.NewStore(conf)
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer store.Close()
+	defer store1.Close()
 	log.Info("Store created successfully")
 	// Создаем сервисы
-	cs := service.NewCategoryService(store)
-	ps := service.NewProductService(store)
+	cs := service.NewCategoryService(store1)
+	ps := service.NewProductService(store1)
 	log.Info("Services created successfully")
 	// Создаем  Api
-	api := api.NewApi(conf, cs, ps)
-	log.WithField("address", api.GetApiInfo().Address).
-		WithField("mw", api.GetApiInfo().MW).
-		WithField("routs", api.GetApiInfo().Routs).
+	api1 := api.NewApi(conf, cs, ps)
+	log.WithField("address", api1.GetApiInfo().Address).
+		WithField("mw", api1.GetApiInfo().MW).
+		WithField("routs", api1.GetApiInfo().Routs).
 		Info("Starting api")
-	log.Fatal(api.Start())
+	log.Fatal(api1.Start())
 }

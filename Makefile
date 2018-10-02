@@ -25,7 +25,7 @@ spec-ui: spec
 	swagger serve -F=swagger ./spec/api.json
 
 db-run: db-stop
-	 docker run --rm -d -p 5433:5432 --name echo-rest-api-db postgres
+	 docker run --rm -d -p 5433:5432 --name echo-rest-api-db postgres:alpine
 	 sleep 2
 
 db-stop:

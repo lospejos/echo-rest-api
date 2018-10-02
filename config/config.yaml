@@ -3,7 +3,7 @@ api:
   httpport: 8081
   logging: true
 store:
-  host: "localhost"
+  host: "192.168.99.100" #"localhost"
   port: 5433
   user: "postgres"
   password: "postgres"

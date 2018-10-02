@@ -34,4 +34,8 @@
 - `make test` - запустит приложение, при этом запустив docker контейнер с БД
 - `make spec` - сгенерирует open-api спецификацию в _spec/api.json_.
 После запуска сервис отдает спеку как статику по пути _/spec/api.json_, можно также выполнить `swagger serve -F=swagger http://localhost:8081/spec/api.json`, что бы отобразить в html виде c запущенного сервиса.
-- `spec-ui` - откроет спеку в html 
+- `spec-ui` - откроет спеку в html
+
+### Подключение к контейнеру echo-rest-api-db:
+`docker exec -i -t echo-rest-api-db /bin/sh`
+
